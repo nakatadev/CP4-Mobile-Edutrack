@@ -18,12 +18,12 @@ pelo componente [`src/components/logo.tsx`](../src/components/logo.tsx) (versão
 32px + wordmark em texto para cabeçalhos, versão grande de 160px para telas de entrada como o
 Onboarding).
 
-O style guide abaixo (paleta e tipografia) foi feito no Figma antes da entrega do logo final;
-o ícone genérico nele será atualizado para o logo real na próxima rodada de telas no Figma.
+O style guide abaixo (paleta e tipografia) foi feito no Figma antes da entrega do logo final,
+por isso ainda mostra um ícone genérico — as 14 telas na seção seguinte já usam o logo real.
 
 ![Style guide EduTrack](marca/style-guide.png)
 
-Arquivo Figma (editável, com paleta e tipografia): https://www.figma.com/design/DMtLARyrO0XZNoSm8z1IGk
+Arquivo Figma (editável, com paleta, tipografia e as 14 telas): https://www.figma.com/design/DMtLARyrO0XZNoSm8z1IGk
 
 ## Paleta de cores
 
@@ -50,8 +50,8 @@ Os mesmos valores estão em código em [`src/constants/theme.ts`](../src/constan
 ## Telas do app
 
 O EduTrack tem 14 telas, todas navegáveis como código funcional no app Expo (ver
-[estrutura de pastas no README](../README.md#estrutura-de-pastas)). As 6 primeiras também têm
-conceito visual estático no Figma.
+[estrutura de pastas no README](../README.md#estrutura-de-pastas)) e todas com conceito visual
+estático no Figma (importadas com o logo real, em 3 seções: "Telas 1", "Telas 2", "Telas 3").
 
 | # | Tela | Descrição |
 | --- | --- | --- |
@@ -70,7 +70,7 @@ conceito visual estático no Figma.
 | 13 | Notificações | Lembretes, progresso de metas, streak, novidades |
 | 14 | Estatísticas | Horas totais/pomodoros, horas por matéria e por dia da semana |
 
-Prints do Figma (telas conceituais, estáticas):
+Prints do Figma (telas conceituais, estáticas — versão anterior, sem o logo real):
 
 | Onboarding | Login | Home |
 | --- | --- | --- |
@@ -80,6 +80,8 @@ Prints do Figma (telas conceituais, estáticas):
 | --- | --- |
 | ![Tela Cronograma](marca/tela-cronograma.png) | ![Tela Pomodoro](marca/tela-pomodoro.png) |
 
-Metas, Detalhe da Meta e Perfil existem como código funcional (`src/app/(tabs)/metas.tsx`,
-`src/app/meta-detalhe.tsx`, `src/app/perfil.tsx`); os prints correspondentes no Figma entram
-assim que o limite de uso do plano do Figma MCP for renovado.
+> Nota: as 14 telas atuais no Figma (com o logo real) foram importadas via plugin
+> [html.to.design](https://www.html.to.design/), diretamente do HTML/CSS que reflete os tokens
+> de `src/constants/theme.ts`. Os prints acima são de uma versão anterior, construída direto
+> pela API do Figma antes do logo definitivo — ficaram aqui só como referência histórica; para
+> ver as telas atuais, abra o arquivo Figma linkado acima.
