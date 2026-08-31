@@ -1,4 +1,5 @@
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { router } from 'expo-router';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Card } from '@/components/card';
@@ -25,21 +26,23 @@ export default function MetasScreen() {
             Acompanhe o progresso dos seus objetivos de estudo.
           </ThemedText>
 
-          {metasMock.map((meta) => (
-            <Card key={meta.id}>
-              <ThemedText type="default">{meta.titulo}</ThemedText>
-              <View style={[styles.progressTrack, { backgroundColor: theme.backgroundSelected }]}>
-                <View
-                  style={[
-                    styles.progressFill,
-                    { width: `${meta.progresso * 100}%`, backgroundColor: theme.accent },
-                  ]}
-                />
-              </View>
-              <ThemedText type="small" themeColor="textSecondary">
-                {meta.horasFeitas}h de {meta.totalHoras}h · {Math.round(meta.progresso * 100)}%
-              </ThemedText>
-            </Card>
+          {metasMock.map((meta, index) => (
+            <Pressable key={meta.id} onPress={() => index === 0 && router.push('/meta-detalhe')}>
+              <Card>
+                <ThemedText type="default">{meta.titulo}</ThemedText>
+                <View style={[styles.progressTrack, { backgroundColor: theme.backgroundSelected }]}>
+                  <View
+                    style={[
+                      styles.progressFill,
+                      { width: `${meta.progresso * 100}%`, backgroundColor: theme.accent },
+                    ]}
+                  />
+                </View>
+                <ThemedText type="small" themeColor="textSecondary">
+                  {meta.horasFeitas}h de {meta.totalHoras}h · {Math.round(meta.progresso * 100)}%
+                </ThemedText>
+              </Card>
+            </Pressable>
           ))}
         </ScrollView>
       </SafeAreaView>

@@ -21,6 +21,8 @@ export type Meta = {
 
 export const usuarioMock = {
   nome: 'Rodrigo',
+  email: 'rodrigo@exemplo.com',
+  plano: 'Gratuito' as 'Gratuito' | 'Premium',
   streakDias: 6,
   pomodorosHoje: 3,
   metaDiariaPomodoros: 5,
@@ -44,4 +46,15 @@ export const pomodoroConfigMock = {
   duracaoFocoMin: 25,
   duracaoPausaMin: 5,
   ciclosAteLongPausa: 4,
+};
+
+export const metaDetalheMock = {
+  ...metasMock[0],
+  descricao: 'Revisar os principais tópicos de Matemática cobrados no ENEM: funções, geometria e estatística.',
+  horasPorSemana: [
+    { semana: 'Sem 1', horas: 3 },
+    { semana: 'Sem 2', horas: 4 },
+    { semana: 'Sem 3', horas: 2.5 },
+    { semana: 'Sem 4', horas: 2.5 },
+  ],
 };

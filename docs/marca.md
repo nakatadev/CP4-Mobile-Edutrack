@@ -36,11 +36,33 @@ Os mesmos valores estão em código em [`src/constants/theme.ts`](../src/constan
 - **Inter** (Regular / Medium / SemiBold) — textos e conteúdo. Fonte de alta legibilidade em
   telas pequenas, ideal para listas de cronograma e cards de dados.
 
-## Telas conceituais
+## Telas do app
 
-Telas conceituais (não funcionais ainda — isso é escopo do CP5) construídas no Figma a partir
-da paleta e tipografia acima:
+O EduTrack tem 8 telas. As mesmas telas existem em dois lugares: como conceito visual no Figma
+(estático, para a identidade de marca do CP4) e como código funcional no app Expo, já navegável
+(ver [estrutura de pastas no README](../README.md#estrutura-de-pastas)).
 
-| Home / Dashboard | Cronograma | Pomodoro |
+| # | Tela | Descrição |
 | --- | --- | --- |
-| ![Tela Home](marca/tela-home.png) | ![Tela Cronograma](marca/tela-cronograma.png) | ![Tela Pomodoro](marca/tela-pomodoro.png) |
+| 1 | Onboarding | Boas-vindas, apresentação da proposta de valor |
+| 2 | Login | Entrar na conta (mock, sem autenticação real ainda) |
+| 3 | Home / Dashboard | Saudação, streak, pomodoros do dia, próxima sessão |
+| 4 | Cronograma | Lista da semana de estudos por matéria/dia/horário |
+| 5 | Pomodoro | Timer de foco/pausa |
+| 6 | Metas | Progresso das metas de estudo |
+| 7 | Detalhe da Meta | Progresso detalhado, horas por semana, adicionar sessão |
+| 8 | Perfil | Dados do usuário, streak, plano, configurações |
+
+Prints do Figma (telas conceituais, estáticas):
+
+| Onboarding | Login | Home |
+| --- | --- | --- |
+| ![Tela Onboarding](marca/tela-onboarding.png) | ![Tela Login](marca/tela-login.png) | ![Tela Home](marca/tela-home.png) |
+
+| Cronograma | Pomodoro |
+| --- | --- |
+| ![Tela Cronograma](marca/tela-cronograma.png) | ![Tela Pomodoro](marca/tela-pomodoro.png) |
+
+Metas, Detalhe da Meta e Perfil existem como código funcional (`src/app/(tabs)/metas.tsx`,
+`src/app/meta-detalhe.tsx`, `src/app/perfil.tsx`); os prints correspondentes no Figma entram
+assim que o limite de uso do plano do Figma MCP for renovado.

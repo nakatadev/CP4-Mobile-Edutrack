@@ -27,11 +27,41 @@ https://www.figma.com/design/DMtLARyrO0XZNoSm8z1IGk
 - TypeScript
 - [Expo Router](https://docs.expo.dev/router/introduction/) (navegação por arquivos)
 
+## Telas
+
+8 telas ao todo — fluxo de entrada (Onboarding → Login) e o app principal em tabs, mais duas
+telas fora das tabs (Perfil e Detalhe da Meta):
+
+| Tela | Rota | Grupo |
+| --- | --- | --- |
+| Onboarding | `/onboarding` | fluxo de entrada |
+| Login | `/login` | fluxo de entrada |
+| Home / Dashboard | `/home` | tabs |
+| Cronograma | `/cronograma` | tabs |
+| Pomodoro | `/pomodoro` | tabs |
+| Metas | `/metas` | tabs |
+| Detalhe da Meta | `/meta-detalhe` | fora das tabs |
+| Perfil | `/perfil` | fora das tabs |
+
+Detalhes visuais de cada tela em [docs/marca.md](docs/marca.md#telas-do-app).
+
 ## Estrutura de pastas
 
 ```
 src/
-  app/            telas (Expo Router) — index, cronograma, pomodoro, metas
+  app/
+    index.tsx        redireciona para /onboarding
+    onboarding.tsx    boas-vindas
+    login.tsx         entrar (mock)
+    perfil.tsx        perfil e configurações
+    meta-detalhe.tsx  detalhe de uma meta
+    (tabs)/           grupo de telas com tab bar
+      _layout.tsx     navegador de tabs
+      home.tsx        dashboard
+      cronograma.tsx
+      pomodoro.tsx
+      metas.tsx
+    _layout.tsx       navegador raiz (Stack)
   components/     componentes compartilhados (Logo, Card, ThemedText, ThemedView)
   constants/      tokens de design (cores, tipografia, espaçamento)
   data/           dados mockados usados pelas telas (sem persistência real ainda)
