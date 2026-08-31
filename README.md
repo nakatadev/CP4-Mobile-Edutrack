@@ -17,7 +17,6 @@ contém o Checkpoint 4 — idealização do app.
 - [Escopo do projeto](docs/escopo.md) — problema, público-alvo, proposta de valor
 - [Identidade visual](docs/marca.md) — logo, paleta de cores, tipografia, telas conceituais
 - [Pitch](docs/pitch.md) — modelo de negócio e diferencial competitivo
-- [Enunciado do checkpoint](docs/enunciado/) — prints do enunciado original
 
 Identidade visual e telas conceituais também estão no Figma:
 https://www.figma.com/design/DMtLARyrO0XZNoSm8z1IGk
