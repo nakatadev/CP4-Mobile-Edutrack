@@ -58,3 +58,78 @@ export const metaDetalheMock = {
     { semana: 'Sem 4', horas: 2.5 },
   ],
 };
+
+export const materiasMock = [
+  'Matemática',
+  'Redação',
+  'Química',
+  'Física',
+  'História',
+  'Biologia',
+];
+
+export type Notificacao = {
+  id: string;
+  titulo: string;
+  descricao: string;
+  quando: string;
+  lida: boolean;
+  icone: 'time-outline' | 'flag-outline' | 'flame-outline' | 'star-outline';
+};
+
+export const notificacoesMock: Notificacao[] = [
+  {
+    id: '1',
+    titulo: 'Hora de estudar!',
+    descricao: 'Sua sessão de Redação começa em 15 minutos.',
+    quando: 'Agora',
+    lida: false,
+    icone: 'time-outline',
+  },
+  {
+    id: '2',
+    titulo: 'Meta quase concluída',
+    descricao: '"Química — reações orgânicas" está em 80%.',
+    quando: '2h atrás',
+    lida: false,
+    icone: 'flag-outline',
+  },
+  {
+    id: '3',
+    titulo: 'Streak de 6 dias 🔥',
+    descricao: 'Você estudou 6 dias seguidos. Continue assim!',
+    quando: 'Ontem',
+    lida: true,
+    icone: 'flame-outline',
+  },
+  {
+    id: '4',
+    titulo: 'Novidade Premium',
+    descricao: 'Conheça as estatísticas avançadas do EduTrack Premium.',
+    quando: '2 dias atrás',
+    lida: true,
+    icone: 'star-outline',
+  },
+];
+
+export const estatisticasMock = {
+  horasTotais: 42.5,
+  pomodorosTotais: 86,
+  mediaDiariaMin: 48,
+  horasPorMateria: [
+    { materia: 'Matemática', horas: 14 },
+    { materia: 'Química', horas: 10 },
+    { materia: 'Redação', horas: 8 },
+    { materia: 'Física', horas: 6.5 },
+    { materia: 'História', horas: 4 },
+  ],
+  horasPorDiaSemana: [
+    { dia: 'D', horas: 1 },
+    { dia: 'S', horas: 2.5 },
+    { dia: 'T', horas: 3 },
+    { dia: 'Q', horas: 2 },
+    { dia: 'Q', horas: 3.5 },
+    { dia: 'S', horas: 1.5 },
+    { dia: 'S', horas: 0.5 },
+  ],
+};

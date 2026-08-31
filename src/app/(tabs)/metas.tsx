@@ -1,3 +1,4 @@
+import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -19,12 +20,22 @@ export default function MetasScreen() {
           style={styles.scroll}
           contentContainerStyle={styles.content}
           showsVerticalScrollIndicator={false}>
-          <ThemedText type="title" style={styles.title}>
-            Metas
-          </ThemedText>
-          <ThemedText themeColor="textSecondary">
-            Acompanhe o progresso dos seus objetivos de estudo.
-          </ThemedText>
+          <View style={styles.header}>
+            <View style={styles.headerText}>
+              <ThemedText type="title" style={styles.title}>
+                Metas
+              </ThemedText>
+              <ThemedText themeColor="textSecondary">
+                Acompanhe o progresso dos seus objetivos de estudo.
+              </ThemedText>
+            </View>
+            <Pressable
+              onPress={() => router.push('/nova-meta')}
+              style={[styles.addButton, { backgroundColor: theme.primary }]}
+              hitSlop={8}>
+              <Ionicons name="add" size={20} color="#FFFFFF" />
+            </Pressable>
+          </View>
 
           {metasMock.map((meta, index) => (
             <Pressable key={meta.id} onPress={() => index === 0 && router.push('/meta-detalhe')}>
@@ -70,6 +81,23 @@ const styles = StyleSheet.create({
     paddingTop: Spacing.four,
     paddingBottom: BottomTabInset + Spacing.five,
     gap: Spacing.three,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: Spacing.three,
+  },
+  headerText: {
+    flex: 1,
+    gap: 4,
+  },
+  addButton: {
+    width: 36,
+    height: 36,
+    borderRadius: Radius.pill,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     fontSize: 32,

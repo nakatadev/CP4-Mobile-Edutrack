@@ -7,12 +7,23 @@ proposta central do app: acompanhar a jornada de estudos do usuário.
 
 ## Logo
 
-Marca simples: um selo arredondado na cor primária com o símbolo de estudo (formatura/livro),
-acompanhado do wordmark "EduTrack" em Poppins Bold.
+![Logo EduTrack](../public/Logo%20Edutrack.jpeg)
+
+Ícone (livro + gráfico de progresso + check) com o wordmark "EduTrack" em duas cores — "Edu" em
+azul-marinho e "Track" em gradiente azul→roxo — reforçando os pilares de estudo (livro),
+progresso (barras) e conclusão (check).
+
+Arquivo usado no app em [`assets/images/logo.jpeg`](../assets/images/logo.jpeg), renderizado
+pelo componente [`src/components/logo.tsx`](../src/components/logo.tsx) (versão compacta com
+32px + wordmark em texto para cabeçalhos, versão grande de 160px para telas de entrada como o
+Onboarding).
+
+O style guide abaixo (paleta e tipografia) foi feito no Figma antes da entrega do logo final;
+o ícone genérico nele será atualizado para o logo real na próxima rodada de telas no Figma.
 
 ![Style guide EduTrack](marca/style-guide.png)
 
-Arquivo Figma (editável, com o logo, paleta e tipografia): https://www.figma.com/design/DMtLARyrO0XZNoSm8z1IGk
+Arquivo Figma (editável, com paleta e tipografia): https://www.figma.com/design/DMtLARyrO0XZNoSm8z1IGk
 
 ## Paleta de cores
 
@@ -38,20 +49,26 @@ Os mesmos valores estão em código em [`src/constants/theme.ts`](../src/constan
 
 ## Telas do app
 
-O EduTrack tem 8 telas. As mesmas telas existem em dois lugares: como conceito visual no Figma
-(estático, para a identidade de marca do CP4) e como código funcional no app Expo, já navegável
-(ver [estrutura de pastas no README](../README.md#estrutura-de-pastas)).
+O EduTrack tem 14 telas, todas navegáveis como código funcional no app Expo (ver
+[estrutura de pastas no README](../README.md#estrutura-de-pastas)). As 6 primeiras também têm
+conceito visual estático no Figma.
 
 | # | Tela | Descrição |
 | --- | --- | --- |
 | 1 | Onboarding | Boas-vindas, apresentação da proposta de valor |
 | 2 | Login | Entrar na conta (mock, sem autenticação real ainda) |
-| 3 | Home / Dashboard | Saudação, streak, pomodoros do dia, próxima sessão |
-| 4 | Cronograma | Lista da semana de estudos por matéria/dia/horário |
-| 5 | Pomodoro | Timer de foco/pausa |
-| 6 | Metas | Progresso das metas de estudo |
-| 7 | Detalhe da Meta | Progresso detalhado, horas por semana, adicionar sessão |
-| 8 | Perfil | Dados do usuário, streak, plano, configurações |
+| 3 | Criar conta | Cadastro (mock, sem autenticação real ainda) |
+| 4 | Home / Dashboard | Saudação, streak, pomodoros do dia, próxima sessão |
+| 5 | Cronograma | Lista da semana de estudos por matéria/dia/horário |
+| 6 | Nova sessão de estudo | Formulário: matéria, dia da semana, horário |
+| 7 | Pomodoro | Timer de foco/pausa |
+| 8 | Metas | Progresso das metas de estudo |
+| 9 | Nova meta | Formulário: título, meta de horas, descrição |
+| 10 | Detalhe da Meta | Progresso detalhado, horas por semana, adicionar sessão |
+| 11 | Perfil | Dados do usuário, streak, plano, configurações |
+| 12 | Editar perfil | Alterar nome e e-mail |
+| 13 | Notificações | Lembretes, progresso de metas, streak, novidades |
+| 14 | Estatísticas | Horas totais/pomodoros, horas por matéria e por dia da semana |
 
 Prints do Figma (telas conceituais, estáticas):
 

@@ -10,8 +10,9 @@ import { MaxContentWidth, Radius, Spacing } from '@/constants/theme';
 import { usuarioMock } from '@/data/mock';
 import { useTheme } from '@/hooks/use-theme';
 
-const settingsItems: { icon: keyof typeof Ionicons.glyphMap; label: string }[] = [
-  { icon: 'notifications-outline', label: 'Notificações' },
+const settingsItems: { icon: keyof typeof Ionicons.glyphMap; label: string; route?: string }[] = [
+  { icon: 'notifications-outline', label: 'Notificações', route: '/notificacoes' },
+  { icon: 'stats-chart-outline', label: 'Estatísticas', route: '/estatisticas' },
   { icon: 'moon-outline', label: 'Tema' },
   { icon: 'star-outline', label: 'Assinar EduTrack Premium' },
   { icon: 'information-circle-outline', label: 'Sobre o EduTrack' },
@@ -35,7 +36,7 @@ export default function PerfilScreen() {
             <View style={{ width: 22 }} />
           </View>
 
-          <View style={styles.profileRow}>
+          <Pressable style={styles.profileRow} onPress={() => router.push('/editar-perfil')}>
             <View style={[styles.avatar, { backgroundColor: theme.primary }]}>
               <ThemedText type="subtitle" style={styles.avatarLetter}>
                 {usuarioMock.nome.charAt(0)}
@@ -52,7 +53,7 @@ export default function PerfilScreen() {
                 {usuarioMock.plano}
               </ThemedText>
             </View>
-          </View>
+          </Pressable>
 
           <View style={styles.statsRow}>
             <Card style={styles.statCard}>
@@ -73,13 +74,16 @@ export default function PerfilScreen() {
 
           <View style={styles.settingsList}>
             {settingsItems.map((item) => (
-              <View key={item.label} style={[styles.settingsRow, { borderColor: theme.border }]}>
+              <Pressable
+                key={item.label}
+                onPress={() => item.route && router.push(item.route as never)}
+                style={[styles.settingsRow, { borderColor: theme.border }]}>
                 <Ionicons name={item.icon} size={20} color={theme.textSecondary} />
                 <ThemedText type="default" style={styles.settingsLabel}>
                   {item.label}
                 </ThemedText>
                 <Ionicons name="chevron-forward" size={18} color={theme.textSecondary} />
-              </View>
+              </Pressable>
             ))}
           </View>
 

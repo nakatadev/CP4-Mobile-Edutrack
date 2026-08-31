@@ -16,7 +16,7 @@ export default function OnboardingScreen() {
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.content}>
           <View style={styles.top}>
-            <Logo />
+            <Logo size="large" />
           </View>
 
           <View style={styles.hero}>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   top: {
-    alignItems: 'flex-start',
+    alignItems: 'center',
   },
   hero: {
     gap: Spacing.three,

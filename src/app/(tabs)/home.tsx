@@ -23,7 +23,7 @@ export default function HomeScreen() {
           contentContainerStyle={styles.content}
           showsVerticalScrollIndicator={false}>
           <View style={styles.topRow}>
-            <Logo />
+            <Logo size="small" />
             <Pressable onPress={() => router.push('/perfil')} hitSlop={12}>
               <Ionicons name="person-circle-outline" size={28} color={theme.text} />
             </Pressable>

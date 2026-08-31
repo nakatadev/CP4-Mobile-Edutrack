@@ -29,19 +29,24 @@ https://www.figma.com/design/DMtLARyrO0XZNoSm8z1IGk
 
 ## Telas
 
-8 telas ao todo — fluxo de entrada (Onboarding → Login) e o app principal em tabs, mais duas
-telas fora das tabs (Perfil e Detalhe da Meta):
+14 telas ao todo — fluxo de entrada, o app principal em tabs, e telas de apoio (fora das tabs):
 
 | Tela | Rota | Grupo |
 | --- | --- | --- |
 | Onboarding | `/onboarding` | fluxo de entrada |
 | Login | `/login` | fluxo de entrada |
+| Criar conta | `/cadastro` | fluxo de entrada |
 | Home / Dashboard | `/home` | tabs |
 | Cronograma | `/cronograma` | tabs |
 | Pomodoro | `/pomodoro` | tabs |
 | Metas | `/metas` | tabs |
+| Nova sessão de estudo | `/nova-sessao` | fora das tabs (modal) |
+| Nova meta | `/nova-meta` | fora das tabs (modal) |
 | Detalhe da Meta | `/meta-detalhe` | fora das tabs |
 | Perfil | `/perfil` | fora das tabs |
+| Editar perfil | `/editar-perfil` | fora das tabs |
+| Notificações | `/notificacoes` | fora das tabs |
+| Estatísticas | `/estatisticas` | fora das tabs |
 
 Detalhes visuais de cada tela em [docs/marca.md](docs/marca.md#telas-do-app).
 
@@ -50,24 +55,31 @@ Detalhes visuais de cada tela em [docs/marca.md](docs/marca.md#telas-do-app).
 ```
 src/
   app/
-    index.tsx        redireciona para /onboarding
-    onboarding.tsx    boas-vindas
-    login.tsx         entrar (mock)
-    perfil.tsx        perfil e configurações
-    meta-detalhe.tsx  detalhe de uma meta
-    (tabs)/           grupo de telas com tab bar
-      _layout.tsx     navegador de tabs
-      home.tsx        dashboard
+    index.tsx           redireciona para /onboarding
+    onboarding.tsx       boas-vindas
+    login.tsx             entrar (mock)
+    cadastro.tsx          criar conta (mock)
+    perfil.tsx             perfil e configurações
+    editar-perfil.tsx      editar nome/e-mail
+    notificacoes.tsx       lista de notificações
+    estatisticas.tsx       horas/pomodoros por matéria e por dia
+    meta-detalhe.tsx       detalhe de uma meta
+    nova-meta.tsx           criar meta (modal)
+    nova-sessao.tsx         criar sessão de estudo (modal)
+    (tabs)/               grupo de telas com tab bar
+      _layout.tsx         navegador de tabs
+      home.tsx            dashboard
       cronograma.tsx
       pomodoro.tsx
       metas.tsx
-    _layout.tsx       navegador raiz (Stack)
+    _layout.tsx           navegador raiz (Stack)
   components/     componentes compartilhados (Logo, Card, ThemedText, ThemedView)
   constants/      tokens de design (cores, tipografia, espaçamento)
   data/           dados mockados usados pelas telas (sem persistência real ainda)
   hooks/          hooks compartilhados (tema, color scheme)
 docs/             documentação do projeto (escopo, marca, pitch)
-assets/           ícones, splash e imagens do app
+assets/           ícones, splash e imagens do app (inclui assets/images/logo.jpeg)
+public/           logo original enviado pelo grupo (referência)
 ```
 
 ## Como rodar

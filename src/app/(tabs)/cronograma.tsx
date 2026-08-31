@@ -1,11 +1,12 @@
 import { Ionicons } from '@expo/vector-icons';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { router } from 'expo-router';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Card } from '@/components/card';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { BottomTabInset, MaxContentWidth, Radius, Spacing } from '@/constants/theme';
 import { cronogramaMock } from '@/data/mock';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -19,10 +20,22 @@ export default function CronogramaScreen() {
           style={styles.scroll}
           contentContainerStyle={styles.content}
           showsVerticalScrollIndicator={false}>
-          <ThemedText type="title" style={styles.title}>
-            Cronograma
-          </ThemedText>
-          <ThemedText themeColor="textSecondary">Sua semana de estudos, organizada.</ThemedText>
+          <View style={styles.header}>
+            <View style={styles.headerText}>
+              <ThemedText type="title" style={styles.title}>
+                Cronograma
+              </ThemedText>
+              <ThemedText themeColor="textSecondary">
+                Sua semana de estudos, organizada.
+              </ThemedText>
+            </View>
+            <Pressable
+              onPress={() => router.push('/nova-sessao')}
+              style={[styles.addButton, { backgroundColor: theme.primary }]}
+              hitSlop={8}>
+              <Ionicons name="add" size={20} color="#FFFFFF" />
+            </Pressable>
+          </View>
 
           {cronogramaMock.map((sessao) => (
             <Card key={sessao.id} style={styles.row}>
@@ -76,6 +89,23 @@ const styles = StyleSheet.create({
     paddingTop: Spacing.four,
     paddingBottom: BottomTabInset + Spacing.five,
     gap: Spacing.three,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: Spacing.three,
+  },
+  headerText: {
+    flex: 1,
+    gap: 4,
+  },
+  addButton: {
+    width: 36,
+    height: 36,
+    borderRadius: Radius.pill,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     fontSize: 32,

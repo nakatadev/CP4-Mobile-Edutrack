@@ -1,29 +1,24 @@
-import { Ionicons } from '@expo/vector-icons';
+import { Image } from 'expo-image';
 import { StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 
 type LogoProps = {
   size?: 'small' | 'large';
 };
 
-export function Logo({ size = 'large' }: LogoProps) {
-  const theme = useTheme();
-  const mark = size === 'large' ? 56 : 32;
-  const icon = size === 'large' ? 28 : 16;
+const logoSource = require('@/assets/images/logo.jpeg');
+
+export function Logo({ size = 'small' }: LogoProps) {
+  if (size === 'large') {
+    return <Image source={logoSource} style={styles.large} contentFit="contain" />;
+  }
 
   return (
     <View style={styles.row}>
-      <View
-        style={[
-          styles.mark,
-          { width: mark, height: mark, borderRadius: Radius.medium, backgroundColor: theme.primary },
-        ]}>
-        <Ionicons name="school" size={icon} color="#FFFFFF" />
-      </View>
-      <ThemedText type={size === 'large' ? 'subtitle' : 'smallBold'}>EduTrack</ThemedText>
+      <Image source={logoSource} style={styles.small} contentFit="cover" />
+      <ThemedText type="smallBold">EduTrack</ThemedText>
     </View>
   );
 }
@@ -34,8 +29,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: Spacing.two,
   },
-  mark: {
-    alignItems: 'center',
-    justifyContent: 'center',
+  small: {
+    width: 32,
+    height: 32,
+    borderRadius: Radius.small,
+  },
+  large: {
+    width: 160,
+    height: 160,
   },
 });

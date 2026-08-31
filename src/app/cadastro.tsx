@@ -10,8 +10,9 @@ import { ThemedView } from '@/components/themed-view';
 import { MaxContentWidth, Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
-export default function LoginScreen() {
+export default function CadastroScreen() {
   const theme = useTheme();
+  const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -26,13 +27,26 @@ export default function LoginScreen() {
           <Logo size="small" />
 
           <View style={styles.headingBlock}>
-            <ThemedText type="subtitle">Entrar</ThemedText>
+            <ThemedText type="subtitle">Criar conta</ThemedText>
             <ThemedText themeColor="textSecondary">
-              Acesse sua conta para continuar seus estudos.
+              Comece a organizar seus estudos em minutos.
             </ThemedText>
           </View>
 
           <View style={styles.form}>
+            <View style={styles.field}>
+              <ThemedText type="smallBold">Nome</ThemedText>
+              <TextInput
+                value={nome}
+                onChangeText={setNome}
+                placeholder="Seu nome"
+                placeholderTextColor={theme.textSecondary}
+                style={[
+                  styles.input,
+                  { backgroundColor: theme.backgroundElement, color: theme.text },
+                ]}
+              />
+            </View>
             <View style={styles.field}>
               <ThemedText type="smallBold">E-mail</ThemedText>
               <TextInput
@@ -68,15 +82,13 @@ export default function LoginScreen() {
             style={[styles.primaryButton, { backgroundColor: theme.primary }]}
             onPress={() => router.replace('/home')}>
             <ThemedText type="default" style={styles.primaryButtonText}>
-              Entrar
+              Criar conta
             </ThemedText>
           </Pressable>
 
-          <Pressable onPress={() => router.push('/cadastro')}>
-            <ThemedText type="small" themeColor="textSecondary" style={styles.center}>
-              Ainda não tem conta? <ThemedText type="linkPrimary">Criar conta</ThemedText>
-            </ThemedText>
-          </Pressable>
+          <ThemedText type="small" themeColor="textSecondary" style={styles.center}>
+            Já tem conta? <ThemedText type="linkPrimary">Entrar</ThemedText>
+          </ThemedText>
         </View>
       </SafeAreaView>
     </ThemedView>
